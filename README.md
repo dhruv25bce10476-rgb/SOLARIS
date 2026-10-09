@@ -162,6 +162,9 @@ The application uses port `3000` by default. If you change the port, set the `PO
 
 In the terminal running the server, press `Ctrl+C`.
 
+
+[Live Demo](https://solaris-ashen.vercel.app/)
+
 ## Run the Arduino prototype
 
 1. Install and open the [Arduino IDE](https://www.arduino.cc/en/software/).
