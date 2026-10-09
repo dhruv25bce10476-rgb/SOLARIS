@@ -127,14 +127,13 @@ The exact files in your final repository may differ slightly as the project evol
 
 ### Setup
 
-1. Clone your GitHub repository and enter the software directory:
+1. Clone the SOLARIS GitHub repository and enter the software directory:
 
    ```bash
-   git clone <YOUR-GITHUB-REPOSITORY-URL>
-   cd <YOUR-REPOSITORY-FOLDER>/solaris
+   git clone https://github.com/dhruv25bce10476-rgb/SOLARIS.git
+   cd SOLARIS/solaris
    ```
-
-   Replace the placeholders with your repository URL and folder name. If you already downloaded the project, simply open a terminal in its `solaris/` directory.
+ If you already downloaded the project, simply open a terminal in its `solaris/` directory.
 
 2. Install dependencies:
 
