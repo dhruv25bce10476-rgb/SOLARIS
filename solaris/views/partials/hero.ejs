@@ -1,0 +1,44 @@
+<section class="solaris-hero" id="top">
+  <div class="solaris-container">
+    <div class="solaris-hero-copy">
+      <p class="solaris-eyebrow">SOLAR ENERGY · SIMULATION PLATFORM</p>
+      <h1 class="solaris-hero-headline">Make Every Ray Count.</h1>
+      <p class="solaris-hero-sub">
+        An interactive solar tracking simulator that continuously optimizes panel orientation
+        to maximize sunlight capture.
+      </p>
+      <div class="solaris-hero-actions">
+        <a href="#simulator" class="btn-solaris-primary">Launch Simulator</a>
+        <a href="#how-it-works" class="solaris-text-link">Explore how it works <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="solaris-hero-preview">
+      <div class="solaris-preview-frame">
+        <div class="solaris-preview-topbar">
+          <span class="solaris-dot"></span>
+          <span class="solaris-dot"></span>
+          <span class="solaris-dot"></span>
+          <span class="solaris-preview-title">Live simulation preview</span>
+        </div>
+        <div class="solaris-preview-canvas-wrap">
+          <canvas id="heroCanvas"></canvas>
+          <div class="solaris-preview-metrics">
+            <div class="solaris-mini-metric">
+              <span class="solaris-mini-label">Irradiance</span>
+              <span class="solaris-mini-value" id="heroIrradiance">—</span>
+            </div>
+            <div class="solaris-mini-metric">
+              <span class="solaris-mini-label">Power</span>
+              <span class="solaris-mini-value" id="heroPower">—</span>
+            </div>
+            <div class="solaris-mini-metric">
+              <span class="solaris-mini-label">Tracking</span>
+              <span class="solaris-mini-value" id="heroTrackingStatus">Standby</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,96 @@
+<section class="solaris-section" id="simulator">
+  <div class="solaris-container">
+    <div class="solaris-section-head">
+      <p class="solaris-eyebrow">THE SIMULATOR</p>
+      <h2 class="solaris-section-title">Run the simulation.</h2>
+      <p class="solaris-section-sub">Watch the Sun move across the sky while the tracking controller searches for maximum irradiance.</p>
+    </div>
+
+    <div class="solaris-console">
+      <!-- Toolbar -->
+      <div class="solaris-toolbar">
+        <div class="solaris-toolbar-left">
+          <span class="solaris-toolbar-title">SOLARIS Simulator</span>
+        </div>
+        <div class="solaris-toolbar-center">
+          <span class="solaris-status-badge" id="simStatusBadge">
+            <span class="solaris-status-dot"></span>
+            <span id="simStatusText">Ready</span>
+          </span>
+          <span class="solaris-time-label" id="simTimeLabel">06:00</span>
+        </div>
+        <div class="solaris-toolbar-right">
+          <button class="solaris-btn-icon" id="btnStart" aria-label="Start simulation" title="Start">
+            <i class="bi bi-play-fill"></i> Start
+          </button>
+          <button class="solaris-btn-icon" id="btnPause" aria-label="Pause simulation" title="Pause">
+            <i class="bi bi-pause-fill"></i> Pause
+          </button>
+          <button class="solaris-btn-icon" id="btnReset" aria-label="Reset simulation" title="Reset">
+            <i class="bi bi-arrow-counterclockwise"></i> Reset
+          </button>
+        </div>
+      </div>
+
+      <!-- Secondary controls row -->
+      <div class="solaris-subtoolbar">
+        <div class="solaris-control-group">
+          <span class="solaris-control-label">Speed</span>
+          <div class="solaris-segmented" id="speedControl" role="group" aria-label="Simulation speed">
+            <button data-speed="1" class="solaris-segment">1×</button>
+            <button data-speed="10" class="solaris-segment active">10×</button>
+            <button data-speed="50" class="solaris-segment">50×</button>
+          </div>
+        </div>
+
+        <div class="solaris-control-group">
+          <span class="solaris-control-label">Tracking</span>
+          <div class="solaris-segmented" id="modeControl" role="group" aria-label="Tracking mode">
+            <button data-mode="fixed" class="solaris-segment">Fixed</button>
+            <button data-mode="manual" class="solaris-segment">Manual</button>
+            <button data-mode="automatic" class="solaris-segment active">Automatic</button>
+          </div>
+        </div>
+
+        <div class="solaris-control-group solaris-time-range">
+          <span class="solaris-control-label">Time</span>
+          <div class="solaris-time-track">
+            <div class="solaris-time-fill" id="timeFill"></div>
+          </div>
+          <div class="solaris-time-endpoints">
+            <span>06:00</span>
+            <span>18:00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main grid: 3D + telemetry -->
+      <div class="solaris-console-grid">
+        <div class="solaris-scene-panel">
+          <div class="solaris-scene-canvas-wrap">
+            <canvas id="mainCanvas"></canvas>
+            <div class="solaris-why-moving" id="whyMoving">
+              <i class="bi bi-info-circle"></i>
+              <span id="whyMovingText">Waiting to start the simulation.</span>
+            </div>
+          </div>
+
+          <div class="solaris-manual-controls" id="manualControls" hidden>
+            <div class="solaris-slider-row">
+              <label for="manualAzimuth">Panel azimuth</label>
+              <input type="range" min="0" max="360" value="180" id="manualAzimuth">
+              <span id="manualAzimuthValue">180°</span>
+            </div>
+            <div class="solaris-slider-row">
+              <label for="manualElevation">Panel elevation</label>
+              <input type="range" min="0" max="90" value="45" id="manualElevation">
+              <span id="manualElevationValue">45°</span>
+            </div>
+          </div>
+        </div>
+
+        <%- include('telemetry') %>
+      </div>
+    </div>
+  </div>
+</section>

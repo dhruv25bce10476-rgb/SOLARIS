@@ -1,0 +1,71 @@
+<aside class="solaris-telemetry-panel" aria-label="Live telemetry">
+  <div class="solaris-telemetry-group">
+    <h4 class="solaris-telemetry-heading">Sun</h4>
+    <div class="solaris-metric-row">
+      <span>Azimuth</span>
+      <span id="sunAzimuth">—</span>
+    </div>
+    <div class="solaris-metric-row">
+      <span>Elevation</span>
+      <span id="sunElevation">—</span>
+    </div>
+  </div>
+
+  <div class="solaris-telemetry-group">
+    <h4 class="solaris-telemetry-heading">Panel</h4>
+    <div class="solaris-metric-row">
+      <span>Azimuth</span>
+      <span id="panelAzimuth">—</span>
+    </div>
+    <div class="solaris-metric-row">
+      <span>Elevation</span>
+      <span id="panelElevation">—</span>
+    </div>
+  </div>
+
+  <div class="solaris-telemetry-group">
+    <h4 class="solaris-telemetry-heading">Performance</h4>
+    <div class="solaris-metric-row">
+      <span>Irradiance</span>
+      <span id="metricIrradiance">—</span>
+    </div>
+    <div class="solaris-metric-row">
+      <span>Power Output</span>
+      <span id="metricPower">—</span>
+    </div>
+    <div class="solaris-metric-row">
+      <span>Incidence Angle</span>
+      <span id="metricIncidence">—</span>
+    </div>
+    <div class="solaris-metric-row">
+      <span>Tracking Efficiency</span>
+      <span id="metricTrackingEfficiency">—</span>
+    </div>
+  </div>
+
+  <div class="solaris-telemetry-group">
+    <h4 class="solaris-telemetry-heading">Energy</h4>
+    <div class="solaris-metric-row">
+      <span>Fixed Energy</span>
+      <span id="metricFixedEnergy">—</span>
+    </div>
+    <div class="solaris-metric-row">
+      <span>Tracked Energy</span>
+      <span id="metricTrackedEnergy">—</span>
+    </div>
+    <div class="solaris-metric-row solaris-metric-highlight">
+      <span>Gain</span>
+      <span id="metricGain">—</span>
+    </div>
+  </div>
+
+  <div class="solaris-telemetry-group solaris-sunpath-group">
+    <h4 class="solaris-telemetry-heading">Sun Path</h4>
+    <svg id="sunPathSvg" viewBox="0 0 240 120" class="solaris-sunpath-svg" role="img" aria-label="Sun path across the horizon">
+      <line x1="10" y1="105" x2="230" y2="105" stroke="var(--solaris-border)" stroke-width="1"></line>
+      <path id="sunPathArc" d="M 10 105 Q 120 5 230 105" fill="none" stroke="var(--solaris-border-strong)" stroke-width="1" stroke-dasharray="3 3"></path>
+      <circle id="sunPathDot" cx="10" cy="105" r="4" fill="var(--solaris-accent)"></circle>
+      <line id="panelPathLine" x1="120" y1="60" x2="120" y2="40" stroke="var(--solaris-green)" stroke-width="2"></line>
+    </svg>
+  </div>
+</aside>

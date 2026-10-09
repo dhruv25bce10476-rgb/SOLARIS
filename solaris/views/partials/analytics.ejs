@@ -1,0 +1,47 @@
+<section class="solaris-section solaris-analytics" id="analytics">
+  <div class="solaris-container">
+    <div class="solaris-section-head">
+      <p class="solaris-eyebrow">ANALYTICS</p>
+      <h2 class="solaris-section-title">See the difference tracking makes.</h2>
+      <p class="solaris-section-sub">
+        Compare how panel orientation affects irradiance, power output, and total energy
+        throughout the simulated day.
+      </p>
+    </div>
+
+    <div class="solaris-chart-grid">
+      <div class="solaris-chart-card">
+        <div class="solaris-chart-card-head">
+          <h3>Irradiance vs Time</h3>
+          <div class="solaris-chart-legend">
+            <span><i class="solaris-legend-dot solaris-legend-fixed"></i>Fixed</span>
+            <span><i class="solaris-legend-dot solaris-legend-track"></i>Tracking</span>
+          </div>
+        </div>
+        <canvas id="chartIrradiance" height="220"></canvas>
+      </div>
+
+      <div class="solaris-chart-card">
+        <div class="solaris-chart-card-head">
+          <h3>Power Output vs Time</h3>
+          <div class="solaris-chart-legend">
+            <span><i class="solaris-legend-dot solaris-legend-fixed"></i>Fixed</span>
+            <span><i class="solaris-legend-dot solaris-legend-track"></i>Tracking</span>
+          </div>
+        </div>
+        <canvas id="chartPower" height="220"></canvas>
+      </div>
+
+      <div class="solaris-chart-card solaris-chart-card-wide">
+        <div class="solaris-chart-card-head">
+          <h3>Energy Generated</h3>
+          <div class="solaris-chart-legend">
+            <span><i class="solaris-legend-dot solaris-legend-fixed"></i>Fixed</span>
+            <span><i class="solaris-legend-dot solaris-legend-track"></i>Tracking</span>
+          </div>
+        </div>
+        <canvas id="chartEnergy" height="180"></canvas>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,986 @@
+/* ==========================================================================
+   SOLARIS — Design System
+   A premium, technical, developer-platform aesthetic built for a
+   solar tracking simulator. Light-first, restrained accent usage.
+   ========================================================================== */
+
+:root {
+  /* Color */
+  --solaris-bg: #ffffff;
+  --solaris-bg-soft: #faf9f6;
+  --solaris-bg-panel: #fcfcfb;
+  --solaris-text: #15181c;
+  --solaris-text-muted: #656d76;
+  --solaris-text-faint: #8b929b;
+  --solaris-border: #e7e5e0;
+  --solaris-border-strong: #d7d4cd;
+
+  --solaris-accent: #e2952c;      /* warm solar yellow/amber */
+  --solaris-accent-strong: #b9701a;
+  --solaris-accent-soft: #fbeed9;
+
+  --solaris-green: #1e8e5a;       /* controlled performance green */
+  --solaris-green-soft: #e3f4ec;
+
+  --solaris-shadow-sm: 0 1px 2px rgba(21, 24, 28, 0.04);
+  --solaris-shadow-md: 0 4px 16px rgba(21, 24, 28, 0.06);
+  --solaris-shadow-lg: 0 12px 40px rgba(21, 24, 28, 0.08);
+
+  --solaris-radius-sm: 8px;
+  --solaris-radius-md: 14px;
+  --solaris-radius-lg: 20px;
+
+  --solaris-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --solaris-font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, monospace;
+
+  --solaris-max-width: 1180px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+
+body {
+  margin: 0;
+  font-family: var(--solaris-font);
+  color: var(--solaris-text);
+  background: var(--solaris-bg);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+:focus-visible {
+  outline: 2px solid var(--solaris-accent-strong);
+  outline-offset: 2px;
+}
+
+.solaris-container {
+  max-width: var(--solaris-max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.solaris-container-narrow {
+  max-width: 720px;
+}
+
+.solaris-text-center { text-align: center; }
+
+/* ==========================================================================
+   Typography helpers
+   ========================================================================== */
+
+.solaris-eyebrow {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--solaris-accent-strong);
+  margin: 0 0 16px;
+}
+
+.solaris-section-title {
+  font-size: clamp(28px, 3.6vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  color: var(--solaris-text);
+}
+
+.solaris-section-sub {
+  font-size: 17px;
+  color: var(--solaris-text-muted);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.solaris-section-head {
+  max-width: 640px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.solaris-section {
+  padding: 96px 0;
+  border-top: 1px solid var(--solaris-border);
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+.solaris-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--solaris-border);
+}
+
+.solaris-nav-inner {
+  max-width: var(--solaris-max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.solaris-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--solaris-text);
+}
+
+.solaris-logo-mark {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffd479, var(--solaris-accent) 70%);
+  box-shadow: 0 0 0 4px var(--solaris-accent-soft);
+  flex-shrink: 0;
+}
+
+.solaris-logo-text { letter-spacing: -0.01em; }
+
+.solaris-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+
+.solaris-nav-links a {
+  color: var(--solaris-text-muted);
+  transition: color 0.15s ease;
+}
+
+.solaris-nav-links a:hover { color: var(--solaris-text); }
+
+.solaris-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.solaris-nav-doc-link {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--solaris-text-muted);
+  white-space: nowrap;
+}
+
+.solaris-nav-doc-link:hover { color: var(--solaris-text); }
+
+.solaris-nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--solaris-border);
+  border-radius: var(--solaris-radius-sm);
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  color: var(--solaris-text);
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn-solaris-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--solaris-text);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: none;
+  transition: transform 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn-solaris-primary:hover {
+  background: #000;
+  transform: translateY(-1px);
+  color: #fff;
+}
+
+.btn-sm-nav { padding: 9px 18px; font-size: 14px; }
+
+.btn-solaris-large { padding: 15px 30px; font-size: 16px; margin-top: 8px; }
+
+.solaris-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--solaris-text);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.solaris-text-link:hover { border-color: var(--solaris-text); }
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.solaris-hero {
+  padding: 88px 0 100px;
+  background:
+    radial-gradient(1100px 400px at 50% -10%, var(--solaris-accent-soft), transparent 60%),
+    var(--solaris-bg);
+}
+
+.solaris-hero .solaris-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 56px;
+}
+
+.solaris-hero-copy {
+  max-width: 680px;
+  text-align: center;
+}
+
+.solaris-hero-copy .solaris-eyebrow { display: block; text-align: center; }
+
+.solaris-hero-headline {
+  font-size: clamp(40px, 6vw, 68px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0 0 22px;
+}
+
+.solaris-hero-sub {
+  font-size: 19px;
+  color: var(--solaris-text-muted);
+  line-height: 1.6;
+  margin: 0 0 32px;
+}
+
+.solaris-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.solaris-hero-preview { width: 100%; max-width: 980px; }
+
+.solaris-preview-frame {
+  background: var(--solaris-bg-panel);
+  border: 1px solid var(--solaris-border);
+  border-radius: var(--solaris-radius-lg);
+  box-shadow: var(--solaris-shadow-lg);
+  overflow: hidden;
+}
+
+.solaris-preview-topbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--solaris-border);
+  background: #fff;
+}
+
+.solaris-dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--solaris-border-strong);
+}
+
+.solaris-preview-title {
+  margin-left: 10px;
+  font-size: 13px;
+  color: var(--solaris-text-faint);
+  font-weight: 500;
+}
+
+.solaris-preview-canvas-wrap {
+  position: relative;
+  aspect-ratio: 16 / 8;
+  background: linear-gradient(180deg, #fdfaf3 0%, #f6f4ee 100%);
+}
+
+.solaris-preview-canvas-wrap canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.solaris-preview-metrics {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.solaris-mini-metric {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--solaris-border);
+  border-radius: var(--solaris-radius-sm);
+  padding: 8px 14px;
+  min-width: 96px;
+  box-shadow: var(--solaris-shadow-sm);
+}
+
+.solaris-mini-label {
+  display: block;
+  font-size: 11px;
+  color: var(--solaris-text-faint);
+  margin-bottom: 2px;
+}
+
+.solaris-mini-value {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Capability cards
+   ========================================================================== */
+
+.solaris-capability-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.solaris-capability-card {
+  background: #fff;
+  border: 1px solid var(--solaris-border);
+  border-radius: var(--solaris-radius-md);
+  padding: 28px 24px;
+  box-shadow: var(--solaris-shadow-sm);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.solaris-capability-card:hover {
+  box-shadow: var(--solaris-shadow-md);
+  transform: translateY(-2px);
+}
+
+.solaris-capability-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--solaris-accent-soft);
+  color: var(--solaris-accent-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+
+.solaris-capability-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.solaris-capability-card p {
+  font-size: 14.5px;
+  color: var(--solaris-text-muted);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   Simulator console
+   ========================================================================== */
+
+.solaris-console {
+  background: var(--solaris-bg-panel);
+  border: 1px solid var(--solaris-border);
+  border-radius: var(--solaris-radius-lg);
+  box-shadow: var(--solaris-shadow-md);
+  overflow: hidden;
+}
+
+.solaris-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--solaris-border);
+  background: #fff;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.solaris-toolbar-title {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.solaris-toolbar-center {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.solaris-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--solaris-bg-soft);
+  border: 1px solid var(--solaris-border);
+  color: var(--solaris-text-muted);
+}
+
+.solaris-status-badge.is-running { color: var(--solaris-green); border-color: var(--solaris-green-soft); background: var(--solaris-green-soft); }
+.solaris-status-badge.is-paused { color: var(--solaris-text-muted); }
+.solaris-status-badge.is-optimal { color: var(--solaris-accent-strong); background: var(--solaris-accent-soft); border-color: var(--solaris-accent-soft); }
+
+.solaris-status-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: currentColor;
+}
+
+.solaris-time-label {
+  font-family: var(--solaris-font-mono);
+  font-size: 13px;
+  color: var(--solaris-text-muted);
+}
+
+.solaris-toolbar-right { display: flex; gap: 8px; }
+
+.solaris-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid var(--solaris-border);
+  border-radius: var(--solaris-radius-sm);
+  padding: 8px 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--solaris-text);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.solaris-btn-icon:hover { border-color: var(--solaris-border-strong); background: var(--solaris-bg-soft); }
+.solaris-btn-icon:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.solaris-subtoolbar {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--solaris-border);
+  flex-wrap: wrap;
+}
+
+.solaris-control-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.solaris-control-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--solaris-text-faint);
+}
+
+.solaris-segmented {
+  display: flex;
+  background: var(--solaris-bg-soft);
+  border: 1px solid var(--solaris-border);
+  border-radius: 999px;
+  padding: 3px;
+}
+
+.solaris-segment {
+  border: none;
+  background: transparent;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--solaris-text-muted);
+  border-radius: 999px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.solaris-segment.active {
+  background: #fff;
+  color: var(--solaris-text);
+  box-shadow: var(--solaris-shadow-sm);
+}
+
+.solaris-time-range { flex: 1; min-width: 220px; gap: 10px; }
+
+.solaris-time-track {
+  flex: 1;
+  height: 4px;
+  background: var(--solaris-border);
+  border-radius: 999px;
+  overflow: hidden;
+  min-width: 120px;
+}
+
+.solaris-time-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--solaris-accent);
+}
+
+.solaris-time-endpoints {
+  display: flex;
+  gap: 8px;
+  font-size: 11.5px;
+  color: var(--solaris-text-faint);
+  font-family: var(--solaris-font-mono);
+}
+
+.solaris-console-grid {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+}
+
+.solaris-scene-panel {
+  border-right: 1px solid var(--solaris-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.solaris-scene-canvas-wrap {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(180deg, #fdfbf6 0%, #f4f2ec 100%);
+}
+
+.solaris-scene-canvas-wrap canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.solaris-why-moving {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--solaris-border);
+  border-radius: var(--solaris-radius-sm);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--solaris-text-muted);
+}
+
+.solaris-why-moving i { color: var(--solaris-accent-strong); }
+
+.solaris-manual-controls {
+  padding: 18px 24px;
+  border-top: 1px solid var(--solaris-border);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.solaris-slider-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 60px;
+  align-items: center;
+  gap: 12px;
+  font-size: 13.5px;
+}
+
+.solaris-slider-row input[type="range"] { width: 100%; accent-color: var(--solaris-accent-strong); }
+.solaris-slider-row span { font-family: var(--solaris-font-mono); font-size: 12.5px; color: var(--solaris-text-muted); text-align: right; }
+
+/* Telemetry */
+
+.solaris-telemetry-panel {
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.solaris-telemetry-heading {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--solaris-text-faint);
+  margin: 0 0 10px;
+}
+
+.solaris-metric-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0;
+  font-size: 14px;
+  border-bottom: 1px solid var(--solaris-border);
+}
+
+.solaris-metric-row:last-child { border-bottom: none; }
+
+.solaris-metric-row span:first-child { color: var(--solaris-text-muted); }
+.solaris-metric-row span:last-child { font-weight: 600; font-family: var(--solaris-font-mono); font-size: 13.5px; }
+
+.solaris-metric-highlight span:last-child { color: var(--solaris-green); }
+
+.solaris-sunpath-group { padding-top: 4px; }
+.solaris-sunpath-svg { width: 100%; height: auto; }
+
+/* ==========================================================================
+   Analytics / Charts
+   ========================================================================== */
+
+.solaris-chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.solaris-chart-card-wide { grid-column: 1 / -1; }
+
+.solaris-chart-card {
+  background: #fff;
+  border: 1px solid var(--solaris-border);
+  border-radius: var(--solaris-radius-md);
+  padding: 22px 22px 12px;
+  box-shadow: var(--solaris-shadow-sm);
+}
+
+.solaris-chart-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.solaris-chart-card-head h3 { font-size: 15px; margin: 0; font-weight: 700; }
+
+.solaris-chart-legend { display: flex; gap: 14px; font-size: 12.5px; color: var(--solaris-text-muted); }
+
+.solaris-legend-dot {
+  display: inline-block;
+  width: 8px; height: 8px; border-radius: 50%;
+  margin-right: 6px;
+}
+
+.solaris-legend-fixed { background: var(--solaris-text-faint); }
+.solaris-legend-track { background: var(--solaris-accent); }
+
+.solaris-chart-card canvas { width: 100%; display: block; }
+
+/* ==========================================================================
+   Comparison
+   ========================================================================== */
+
+.solaris-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.solaris-comparison-card {
+  background: #fff;
+  border: 1px solid var(--solaris-border);
+  border-radius: var(--solaris-radius-md);
+  padding: 32px;
+  text-align: center;
+}
+
+.solaris-comparison-card-highlight {
+  border-color: var(--solaris-accent);
+  box-shadow: 0 0 0 3px var(--solaris-accent-soft);
+}
+
+.solaris-comparison-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--solaris-text-faint);
+  margin: 0 0 12px;
+}
+
+.solaris-comparison-value {
+  font-size: 40px;
+  font-weight: 800;
+  margin: 0 0 8px;
+  font-family: var(--solaris-font-mono);
+}
+
+.solaris-comparison-card-highlight .solaris-comparison-value { color: var(--solaris-accent-strong); }
+
+.solaris-comparison-caption { font-size: 13.5px; color: var(--solaris-text-muted); margin: 0; }
+
+.solaris-comparison-gain {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.solaris-gain-badge {
+  background: var(--solaris-green-soft);
+  color: var(--solaris-green);
+  font-weight: 700;
+  font-size: 14.5px;
+  padding: 10px 20px;
+  border-radius: 999px;
+}
+
+/* ==========================================================================
+   How it works — numbered blocks
+   ========================================================================== */
+
+.solaris-numbered-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.solaris-number {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--solaris-accent-strong);
+  margin-bottom: 14px;
+  font-family: var(--solaris-font-mono);
+}
+
+.solaris-numbered-block h3 { font-size: 18px; font-weight: 700; margin: 0 0 8px; }
+.solaris-numbered-block p { font-size: 14.5px; color: var(--solaris-text-muted); line-height: 1.6; margin: 0; }
+
+/* ==========================================================================
+   Physics section
+   ========================================================================== */
+
+.solaris-physics-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.solaris-physics-copy .solaris-section-sub { margin: 0 0 24px; max-width: none; }
+
+.solaris-var-list { display: flex; flex-direction: column; gap: 10px; }
+.solaris-var-list li { font-size: 14px; color: var(--solaris-text-muted); }
+.solaris-var-list span { font-family: var(--solaris-font-mono); font-weight: 700; color: var(--solaris-text); margin-right: 10px; }
+
+.solaris-formula-card {
+  background: var(--solaris-bg-panel);
+  border: 1px solid var(--solaris-border);
+  border-radius: var(--solaris-radius-md);
+  padding: 24px 28px;
+  margin-bottom: 16px;
+}
+
+.solaris-formula-label {
+  font-size: 12px;
+  color: var(--solaris-text-faint);
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+.solaris-formula {
+  font-family: var(--solaris-font-mono);
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--solaris-text);
+}
+
+/* ==========================================================================
+   Assumptions
+   ========================================================================== */
+
+.solaris-details {
+  border: 1px solid var(--solaris-border);
+  border-radius: var(--solaris-radius-md);
+  padding: 20px 24px;
+  background: var(--solaris-bg-panel);
+}
+
+.solaris-details summary {
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.solaris-assumptions-list {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 24px;
+}
+
+.solaris-assumptions-list li {
+  font-size: 14px;
+  color: var(--solaris-text-muted);
+  padding-left: 16px;
+  position: relative;
+}
+
+.solaris-assumptions-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--solaris-border-strong);
+}
+
+.solaris-scientific-note {
+  margin-top: 18px;
+  font-size: 13.5px;
+  color: var(--solaris-text-faint);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Roadmap
+   ========================================================================== */
+
+.solaris-roadmap-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 32px;
+}
+
+.solaris-roadmap-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--solaris-border);
+  font-size: 15px;
+  color: var(--solaris-text-muted);
+}
+
+.solaris-roadmap-list .solaris-number { margin: 0; min-width: 28px; }
+
+/* ==========================================================================
+   Final CTA
+   ========================================================================== */
+
+.solaris-final-cta { padding-bottom: 120px; }
+.solaris-final-cta .solaris-section-sub { margin: 0 auto 8px; }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.solaris-footer {
+  border-top: 1px solid var(--solaris-border);
+  padding: 64px 0 32px;
+  background: var(--solaris-bg-soft);
+}
+
+.solaris-footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.solaris-footer-brand p { color: var(--solaris-text-muted); font-size: 14px; margin-top: 10px; }
+
+.solaris-footer-col h5 {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--solaris-text-faint);
+  margin: 0 0 14px;
+}
+
+.solaris-footer-col a {
+  display: block;
+  font-size: 14px;
+  color: var(--solaris-text-muted);
+  margin-bottom: 10px;
+}
+
+.solaris-footer-col a:hover { color: var(--solaris-text); }
+
+.solaris-footer-bottom {
+  border-top: 1px solid var(--solaris-border);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--solaris-text-faint);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .solaris-capability-grid { grid-template-columns: repeat(2, 1fr); }
+  .solaris-numbered-grid { grid-template-columns: repeat(2, 1fr); }
+  .solaris-console-grid { grid-template-columns: 1fr; }
+  .solaris-scene-panel { border-right: none; border-bottom: 1px solid var(--solaris-border); }
+  .solaris-chart-grid { grid-template-columns: 1fr; }
+  .solaris-physics-grid { grid-template-columns: 1fr; gap: 32px; }
+  .solaris-footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .solaris-nav-links, .solaris-nav-doc-link { display: none; }
+  .solaris-nav-toggle { display: flex; align-items: center; justify-content: center; }
+  .solaris-nav-links.is-open {
+    display: flex;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--solaris-border);
+    gap: 18px;
+  }
+  .solaris-comparison-grid { grid-template-columns: 1fr; }
+  .solaris-roadmap-list { grid-template-columns: 1fr; }
+  .solaris-assumptions-list { grid-template-columns: 1fr; }
+  .solaris-section { padding: 64px 0; }
+  .solaris-capability-grid { grid-template-columns: 1fr; }
+  .solaris-numbered-grid { grid-template-columns: 1fr; }
+  .solaris-subtoolbar { flex-direction: column; align-items: stretch; gap: 16px; }
+  .solaris-time-range { flex-direction: column; align-items: stretch; }
+  .solaris-footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .solaris-footer-bottom { flex-direction: column; }
+}

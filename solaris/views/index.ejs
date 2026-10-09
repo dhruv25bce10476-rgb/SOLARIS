@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %></title>
+  <meta name="description" content="SOLARIS is a physics-inspired interactive solar tracking simulator that visualizes intelligent panel orientation and energy capture." />
+
+  <!-- Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%229%22 fill=%22%23F5A623%22/></svg>">
+</head>
+<body>
+
+  <%- include('partials/navbar') %>
+
+  <main>
+    <%- include('partials/hero') %>
+    <%- include('partials/capabilities') %>
+    <%- include('partials/simulator') %>
+    <%- include('partials/analytics') %>
+    <%- include('partials/comparison') %>
+    <%- include('partials/how-it-works') %>
+    <%- include('partials/physics') %>
+    <%- include('partials/assumptions') %>
+    <%- include('partials/future') %>
+    <%- include('partials/cta') %>
+  </main>
+
+  <%- include('partials/footer') %>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/threeScene.js"></script>
+  <script src="/js/charts.js"></script>
+  <script src="/js/simulation.js"></script>
+  <script src="/js/controls.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
