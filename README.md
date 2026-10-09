@@ -278,6 +278,16 @@ The repository includes example images in `prototype_images/`.
 
 If you rename or move any image, update the corresponding relative path above. GitHub displays these images directly in the README when the paths match the repository.
 
+### Prototype Videos
+
+Explore both the physical hardware prototype and the software simulation developed for SOLARIS.
+
+* **Hardware Prototype:** [Watch Hardware Demonstration](prototype_video/hardware_prototype_video.mp4)
+* **Software Prototype:** [Watch Software Demonstration](prototype_video/software_prototype_video.mp4)
+
+The videos showcase the physical dual-axis solar-tracking prototype and the interactive solar-tracking simulation, respectively.
+
+
 ## Testing and validation
 
 The project report records software checks for changing latitude, changing panel tilt, Fixed mode, Automatic mode, and comparing fixed/tracking simulated energy. It marks these software test cases as passed.
